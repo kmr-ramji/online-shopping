@@ -11,18 +11,27 @@ public class PageController {
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView getHomePage() {
 		ModelAndView mav = new ModelAndView("page");
-		mav.addObject("greeting", "Welcome to String Web MVC");
+		//mav.addObject("greeting", "Welcome to String Web MVC");
+		mav.addObject("title", "Home");
+		mav.addObject("userClickHome", true);
 		return mav;
 	}
 	
-	@RequestMapping(value="/test")
-	public ModelAndView test(@RequestParam(value="greeting", required=false) String greeting) {
-		if (greeting == null) {
-			greeting = "Hello there";
-		}
+	@RequestMapping(value = {"/about"})
+	public ModelAndView getAbout() {
 		ModelAndView mav = new ModelAndView("page");
-		mav.addObject("greeting", greeting);
-		
+		//mav.addObject("greeting", "Welcome to String Web MVC");
+		mav.addObject("title", "About Us");
+		mav.addObject("userClickAbout", true);
+		return mav;
+	}
+	
+	@RequestMapping(value = {"/contact"})
+	public ModelAndView getContact() {
+		ModelAndView mav = new ModelAndView("page");
+		//mav.addObject("greeting", "Welcome to String Web MVC");
+		mav.addObject("title", "Contact Us");
+		mav.addObject("userClickContact", true);
 		return mav;
 	}
 }
