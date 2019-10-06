@@ -11,10 +11,8 @@
    http://www.springframework.org/schema/context/spring-context.xsd
    ">
 
-	<mvc:resources location="/assets/" mapping="/resources/**"/>
-	<mvc:annotation-driven/>
-
 	<context:component-scan base-package="com.ramji.onlineshopping.controller"/>
+	<context:component-scan base-package="com.ramji.shoppingbackend.daoImpl"/>
 	
 	<bean id="viewResolver" 
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,4 +20,7 @@
 			<property name="suffix" value=".jsp"/>
 	</bean>
 
+
+	<mvc:resources location="/assets/" mapping="/resources/**"/>
+	<mvc:annotation-driven/>
 </beans>
