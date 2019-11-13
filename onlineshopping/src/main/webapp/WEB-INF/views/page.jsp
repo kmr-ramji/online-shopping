@@ -1,5 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
+<spring:url var="images" value="/resources/images" />
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
@@ -16,12 +18,17 @@
 
 <script type="text/javascript">
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap core CSS -->
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+<!-- Bootstrap Theme -->
+<%-- <link href="<c:url value="/resources/css/bootstrap-flatly-theme.css"/>" rel="stylesheet"> --%>
+<!-- Bootstrap DataTables -->
+<link href="<c:url value="/resources/css/dataTables.bootstrap4.css"/>" rel="stylesheet">
 
-<link href="<c:url value="/resources/css/bootstrap-flatly-theme.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="<c:url value="/resources/css/myapp.css"/>" rel="stylesheet">
@@ -50,6 +57,10 @@
 			<c:if test="${userClickAllProducts == true or userClickCategoryProduct == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 		</div>
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
@@ -57,6 +68,10 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="<c:url value="/resources/js/jquery/jquery.min.js"/>"></script>
 		<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
+		
+		<script src="<c:url value="/resources/js/jquery/jquery.dataTables.js"/>"></script>
+		
+		<script src="<c:url value="/resources/js/dataTables.bootstrap4.js"/>"></script>
 
 		<script src="<c:url value="/resources/js/myapp.js"/>"></script>
 	</div>
